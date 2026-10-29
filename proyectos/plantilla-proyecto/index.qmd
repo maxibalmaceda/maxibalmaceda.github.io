@@ -74,10 +74,13 @@ ORDER BY dia_semana;
 #| code-summary: "Ver el código del gráfico"
 import matplotlib.pyplot as plt
 
+plt.rcParams.update({"text.color": "#f3f2ee", "axes.labelcolor": "#f3f2ee", "xtick.color": "#a9b2bc",
+                     "ytick.color": "#a9b2bc", "axes.edgecolor": "#5d6874"})
+
 nombres = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
 prom = caja.assign(d=caja.fecha.dt.dayofweek).groupby("d")[["efectivo", "posnet", "transferencia"]].mean()
 
-colores = {"efectivo": "#0e6b6b", "posnet": "#7fb3ad", "transferencia": "#c9a227"}
+colores = {"efectivo": "#4fb3a9", "posnet": "#7fb3ad", "transferencia": "#c9a227"}
 fig, ax = plt.subplots(figsize=(8, 3.6))
 abajo = np.zeros(7)
 for medio, color in colores.items():
