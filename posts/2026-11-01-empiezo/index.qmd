@@ -1,16 +1,11 @@
 ---
 title: "Empiezo a aprender en público"
-description: "Por qué un estudiante de Matemática de 38 años abre un blog de datos, y qué va a encontrar acá."
-date: 2026-11-01
+description: "Por qué abro este cuaderno de trabajo y por dónde empiezo."
+date: 2026-10-29
 categories: [Bitácora]
 image: portada.png
-draft: true   # BORRADOR: reescribilo con tus palabras y cambiá a false para publicarlo
+draft: false
 ---
-
-<!--
-  Este es un BORRADOR para que lo edites. La idea es que suene a vos.
-  Reglas: frases cortas, una idea por párrafo, nada de exagerar.
--->
 
 Estudio la Licenciatura en Matemática y me estoy formando para trabajar en análisis de datos. Este blog es mi cuaderno de trabajo: acá voy a publicar lo que aprendo y lo que construyo.
 
@@ -20,15 +15,8 @@ Quiero trabajar en análisis de datos. Y estoy convencido de que la mejor forma 
 
 También lo abro para obligarme a explicar. Si no puedo contar un concepto en palabras simples, todavía no lo entendí del todo.
 
-## Qué vas a encontrar
-
-- **Proyectos:** preguntas de negocio respondidas con datos reales, de la pregunta a la conclusión.
-- **Notas de estadística:** un concepto por nota, con la intuición, la fórmula y un ejemplo.
-- **Bitácora:** lo que voy aprendiendo de SQL, Python y visualización, con los tropiezos incluidos.
-- **Matemática:** demostraciones y apuntes de matemática pura y estadística teórica.
-
 ## Lo que viene
 
-Este mes arranco con SQL desde cero. El primer proyecto va a ser una radiografía financiera de un comercio de barrio: qué se vende, cuándo, por qué medio de pago y cuánto pesa cada proveedor.
+Este mes arranco con SQL desde cero. Voy a ir contando acá lo que aprendo y, cuando esté listo, mi primer proyecto.
 
 Si te interesa el cruce entre matemática y datos, quedate cerca.
