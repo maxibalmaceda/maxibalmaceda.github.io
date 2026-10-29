@@ -59,7 +59,7 @@ Un error en 31 datos movió la media unas 29 unidades, casi un 30 %. La mediana 
 #| code-summary: "Ver el código del gráfico"
 import matplotlib.pyplot as plt
 
-tinta, suave, acento, alerta = "#1d2733", "#9aa3ad", "#0e6b6b", "#b5542a"
+tinta, suave, acento, alerta = "#f3f2ee", "#7d8894", "#4fb3a9", "#e07a4f"
 
 fig, ax = plt.subplots(figsize=(8, 2.8))
 jitter = rng.uniform(-0.12, 0.12, size=len(ventas))
@@ -81,6 +81,7 @@ ax.set_xlabel("Unidades vendidas por día", color=tinta)
 for lado in ["top", "right", "left"]:
     ax.spines[lado].set_visible(False)
 ax.tick_params(colors=tinta)
+ax.spines["bottom"].set_color(suave)
 fig.patch.set_alpha(0)
 ax.set_facecolor("none")
 plt.tight_layout()
