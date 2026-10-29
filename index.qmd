@@ -31,7 +31,7 @@ listing:
       entender qué dicen los datos y convertirlo en decisiones.</p>
     <div class="botones">
       <a class="principal" href="proyectos.html">Ver proyectos</a>
-      <a href="https://www.linkedin.com/in/maximiliano-balmaceda-5639551b5">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/maxi-balmaceda">LinkedIn</a>
       <a href="https://github.com/maxibalmaceda">GitHub</a>
     </div>
   </div>
