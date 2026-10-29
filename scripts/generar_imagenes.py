@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 RAIZ = Path(__file__).resolve().parent.parent
-PAPEL, TINTA, SUAVE, ACENTO, ALERTA = "#fbfaf7", "#1d2733", "#c8ced4", "#0e6b6b", "#b5542a"
+PAPEL, TINTA, SUAVE, ACENTO, ALERTA = "#1a2028", "#f3f2ee", "#5d6874", "#4fb3a9", "#e07a4f"
 
 
 def lienzo(ancho=8, alto=4.5):
