@@ -12,7 +12,7 @@ draft: true   # BORRADOR: reescribilo con tus palabras y cambiá a false para pu
   Reglas: frases cortas, una idea por párrafo, nada de exagerar.
 -->
 
-Hace 16 años que trabajo en un comercio de alimentos de barrio. Hace poco más de uno que estudio la Licenciatura en Matemática. Este blog es el punto donde esas dos cosas se cruzan.
+Estudio la Licenciatura en Matemática y me estoy formando para trabajar en análisis de datos. Este blog es mi cuaderno de trabajo: acá voy a publicar lo que aprendo y lo que construyo.
 
 ## Por qué abro este espacio
 
@@ -22,12 +22,13 @@ También lo abro para obligarme a explicar. Si no puedo contar un concepto en pa
 
 ## Qué vas a encontrar
 
-- **Proyectos:** preguntas de negocio respondidas con datos. El primero usa los registros del comercio donde trabajo, anonimizados.
+- **Proyectos:** preguntas de negocio respondidas con datos reales, de la pregunta a la conclusión.
 - **Notas de estadística:** un concepto por nota, con la intuición, la fórmula y un ejemplo.
 - **Bitácora:** lo que voy aprendiendo de SQL, Python y visualización, con los tropiezos incluidos.
+- **Matemática:** demostraciones y apuntes de matemática pura y estadística teórica.
 
 ## Lo que viene
 
 Este mes arranco con SQL desde cero. El primer proyecto va a ser una radiografía financiera de un comercio de barrio: qué se vende, cuándo, por qué medio de pago y cuánto pesa cada proveedor.
 
-Si te interesa el cruce entre matemática, datos y negocios reales, quedate cerca.
+Si te interesa el cruce entre matemática y datos, quedate cerca.
