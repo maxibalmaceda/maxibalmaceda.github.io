@@ -49,15 +49,10 @@ Trayectoria
     <span class="que">Licenciatura en Matemática · UAI</span>
     <span class="detalle">Análisis, álgebra y estadística. Autoestudio en paralelo de estadística aplicada, SQL y Python.</span>
   </li>
-  <li class="actual">
-    <span class="anio">2025</span>
-    <span class="que">Digitalización de la gestión del comercio</span>
-    <span class="detalle">Sistema de registro financiero, informes de rentabilidad y una aplicación que procesa facturas con IA.</span>
-  </li>
   <li>
     <span class="anio">2010 – actualidad</span>
-    <span class="que">Administración y operaciones · comercio minorista de alimentos</span>
-    <span class="detalle">16 años en la gestión diaria de caja, proveedores, compras y precios.</span>
+    <span class="que">Administración y operaciones · comercio minorista</span>
+    <span class="detalle">Gestión de caja, proveedores y precios. Desde 2026, digitalización del registro financiero e informes de rentabilidad.</span>
   </li>
 </ul>
 ```

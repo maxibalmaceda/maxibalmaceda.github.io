@@ -8,12 +8,12 @@ $font-family-monospace: "JetBrains Mono", ui-monospace, monospace;
 $font-size-root: 17px;
 $line-height-base: 1.65;
 
-// Colores: tinta, papel y un único acento
-$ink: #1d2733;
-$ink-soft: #5b6573;
-$paper: #fbfaf7;
-$rule: #e6e2da;
-$accent: #0e6b6b;
+// Colores (modo oscuro): tinta clara, fondo carbón y un único acento
+$ink: #f3f2ee;
+$ink-soft: #a9b2bc;
+$paper: #12161c;
+$rule: #2b323b;
+$accent: #4fb3a9;
 
 $body-bg: $paper;
 $body-color: $ink;
@@ -29,7 +29,7 @@ $footer-bg: $paper;
 $footer-fg: $ink-soft;
 
 $border-color: $rule;
-$code-color: #8a3b12;
+$code-color: #f0a072;
 
 /*-- scss:rules --*/
 
@@ -59,7 +59,7 @@ h2 {
 }
 
 p code, li code {
-  background: #f1eee8;
+  background: #1f262e;
   padding: 0.1em 0.35em;
   border-radius: 4px;
 }
@@ -106,7 +106,7 @@ p code, li code {
     text-decoration: none;
     &.principal {
       background: $accent;
-      color: #fff;
+      color: #0e1418;
     }
     &:hover {
       opacity: 0.85;
@@ -188,14 +188,14 @@ p code, li code {
 // ---------- Listados (blog y proyectos) ----------
 
 .quarto-grid-item.card {
-  background: #fff;
+  background: #1a2028;
   border: 1px solid $rule;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(29, 39, 51, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   }
   .card-title {
     font-family: $headings-font-family;

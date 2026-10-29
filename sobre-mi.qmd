@@ -14,16 +14,19 @@ about:
       href: https://github.com/maxibalmaceda
 ---
 
-Soy Maximiliano Balmaceda, estudiante de la Licenciatura en Matemática en la Universidad Abierta Interamericana (UAI), y me estoy formando para trabajar en análisis de datos.
+Soy Maximiliano Balmaceda, estudiante de la Licenciatura en Matemática en la Universidad Abierta Interamericana (UAI). Me estoy formando para trabajar en análisis de datos.
 
-Hace 16 años trabajo en la administración y operación de un comercio familiar de alimentos. Ahí aprendí cómo funciona un negocio por dentro: caja, proveedores, compras y márgenes. En 2025 decidí aplicar lo que estudio: diseñé el sistema de registro financiero del comercio, armé informes mensuales de rentabilidad y desarrollé una aplicación que lee facturas con IA para calcular precios de venta.
+Me interesa la estadística en sus dos caras: la teórica, que explica por qué funcionan los métodos, y la aplicada, que los lleva a problemas concretos: entender qué dicen los datos, detectar lo que se sale de lo normal y convertirlo en decisiones.
 
-Me interesa la estadística aplicada a problemas concretos: entender qué dicen los datos, detectar lo que se sale de lo normal y convertirlo en decisiones.
+Vengo de 16 años en la gestión de un comercio minorista, donde aprendí a leer los números de un negocio desde adentro.
+
+Este sitio es mi cuaderno de trabajo: acá publico lo que aprendo y lo que construyo.
 
 ## Qué vas a encontrar acá
 
 - **Proyectos:** análisis completos con datos reales, de la pregunta a la conclusión.
 - **Blog:** notas de estadística explicadas con intuición, y lo que voy aprendiendo de SQL, Python y visualización.
+- **Matemática:** demostraciones, apuntes y artículos de matemática pura y estadística teórica, con el rigor de la carrera.
 
 ## Herramientas
 

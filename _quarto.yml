@@ -37,12 +37,12 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, styles.scss]
+      light: [darkly, styles.scss]
     toc: false
     smooth-scroll: true
     code-copy: true
     code-overflow: wrap
-    highlight-style: github
+    highlight-style: github-dark
     html-math-method: katex
 
 execute:
