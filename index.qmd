@@ -1,0 +1,81 @@
+---
+title: "Inicio"
+title-block-banner: false
+page-layout: article
+listing:
+  - id: proyectos-destacados
+    contents: proyectos
+    type: grid
+    grid-columns: 3
+    max-items: 3
+    sort: "date desc"
+    fields: [image, title, description]
+    image-height: 160px
+  - id: ultimos-articulos
+    contents: posts
+    type: default
+    max-items: 3
+    sort: "date desc"
+    fields: [date, title, description, categories]
+    date-format: "D [de] MMMM, YYYY"
+---
+
+```{=html}
+<style>#title-block-header { display: none; }</style>
+<div class="hero">
+  <img class="foto" src="img/foto.png" alt="Foto de Maximiliano Balmaceda">
+  <div>
+    <p class="saludo">Hola, soy Maxi.</p>
+    <p class="bajada">Estudio Matemática y aprendo análisis de datos en público.
+      Me interesa la estadística aplicada a problemas concretos:
+      entender qué dicen los datos y convertirlo en decisiones.</p>
+    <div class="botones">
+      <a class="principal" href="proyectos.html">Ver proyectos</a>
+      <a href="https://www.linkedin.com/in/maximiliano-balmaceda-5639551b5">LinkedIn</a>
+      <a href="https://github.com/maxibalmaceda">GitHub</a>
+    </div>
+  </div>
+</div>
+```
+
+::: etiqueta-seccion
+Trayectoria
+:::
+
+```{=html}
+<ul class="linea-tiempo">
+  <li class="actual">
+    <span class="anio">2025 – actualidad</span>
+    <span class="que">Licenciatura en Matemática · UAI</span>
+    <span class="detalle">Análisis, álgebra y estadística. Autoestudio en paralelo de estadística aplicada, SQL y Python.</span>
+  </li>
+  <li class="actual">
+    <span class="anio">2025</span>
+    <span class="que">Digitalización de la gestión del comercio</span>
+    <span class="detalle">Sistema de registro financiero, informes de rentabilidad y una aplicación que procesa facturas con IA.</span>
+  </li>
+  <li>
+    <span class="anio">2010 – actualidad</span>
+    <span class="que">Administración y operaciones · comercio minorista de alimentos</span>
+    <span class="detalle">16 años en la gestión diaria de caja, proveedores, compras y precios.</span>
+  </li>
+</ul>
+```
+
+::: etiqueta-seccion
+Proyectos
+:::
+
+::: {#proyectos-destacados}
+:::
+
+[Ver todos los proyectos →](proyectos.qmd)
+
+::: etiqueta-seccion
+Últimos artículos
+:::
+
+::: {#ultimos-articulos}
+:::
+
+[Ir al blog →](blog.qmd)

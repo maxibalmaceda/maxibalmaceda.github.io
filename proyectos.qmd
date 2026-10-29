@@ -1,0 +1,14 @@
+---
+title: "Proyectos"
+subtitle: "Cada proyecto responde una pregunta de negocio con datos reales y termina en una conclusión accionable."
+listing:
+  contents: proyectos
+  type: grid
+  grid-columns: 2
+  sort: "date desc"
+  categories: true
+  fields: [image, title, description, categories]
+  image-height: 200px
+page-layout: full
+title-block-banner: false
+---

@@ -1,0 +1,30 @@
+---
+title: "Sobre mí"
+image: img/foto.png
+about:
+  template: trestles
+  image-shape: round
+  image-width: 14em
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/maximiliano-balmaceda-5639551b5
+    - icon: github
+      text: GitHub
+      href: https://github.com/maxibalmaceda
+---
+
+Soy Maximiliano Balmaceda, estudiante de la Licenciatura en Matemática en la Universidad Abierta Interamericana (UAI), y me estoy formando para trabajar en análisis de datos.
+
+Hace 16 años trabajo en la administración y operación de un comercio familiar de alimentos. Ahí aprendí cómo funciona un negocio por dentro: caja, proveedores, compras y márgenes. En 2025 decidí aplicar lo que estudio: diseñé el sistema de registro financiero del comercio, armé informes mensuales de rentabilidad y desarrollé una aplicación que lee facturas con IA para calcular precios de venta.
+
+Me interesa la estadística aplicada a problemas concretos: entender qué dicen los datos, detectar lo que se sale de lo normal y convertirlo en decisiones.
+
+## Qué vas a encontrar acá
+
+- **Proyectos:** análisis completos con datos reales, de la pregunta a la conclusión.
+- **Blog:** notas de estadística explicadas con intuición, y lo que voy aprendiendo de SQL, Python y visualización.
+
+## Herramientas
+
+Excel · Python · Estadística · *En curso:* SQL, Power BI, Pandas

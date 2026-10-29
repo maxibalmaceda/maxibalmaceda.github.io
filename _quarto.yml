@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: _site
+
+lang: es
+
+website:
+  title: "Maximiliano Balmaceda"
+  description: "Matemática, estadística y análisis de datos"
+  site-url: "https://maxibalmaceda.github.io"
+  favicon: img/favicon.png
+  open-graph: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: proyectos.qmd
+        text: Proyectos
+      - href: blog.qmd
+        text: Blog
+      - href: sobre-mi.qmd
+        text: Sobre mí
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/maximiliano-balmaceda-5639551b5
+        aria-label: LinkedIn
+      - icon: github
+        href: https://github.com/maxibalmaceda
+        aria-label: GitHub
+      - icon: rss
+        href: blog.xml
+        aria-label: RSS
+  page-footer:
+    left: "© 2026 Maximiliano Balmaceda"
+    right: "Hecho con [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme:
+      light: [cosmo, styles.scss]
+    toc: false
+    smooth-scroll: true
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: github
+    html-math-method: katex
+
+execute:
+  freeze: auto
+  echo: true
+  warning: false
