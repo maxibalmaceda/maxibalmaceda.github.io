@@ -1,0 +1,106 @@
+---
+title: "Radiografía financiera de un comercio de barrio"
+description: "Qué se vende, cuándo, por qué medio de pago y cuánto pesa cada proveedor. Proyecto 1 del portafolio."
+date: 2027-02-28
+categories: [SQL, Excel, Comercio minorista]
+image: portada.png
+draft: true   # PLANTILLA: reemplazá los datos simulados por los reales y cambiá a false al publicar
+---
+
+::: {.callout-note appearance="simple"}
+**Plantilla.** Esta página usa datos simulados para mostrar la estructura. Cuando tengas los datos reales del comercio (anonimizados), reemplazá el bloque de carga y reescribí cada sección.
+:::
+
+::: {.callout-tip appearance="simple" icon="false"}
+**En una frase:** *[Tu conclusión principal acá. Ejemplo: el 40 % de las ventas entra por transferencia los fines de semana, y dos proveedores concentran más de la mitad de las compras.]*
+:::
+
+## 1. La pregunta
+
+¿Cómo se distribuyen las ventas de un comercio minorista de alimentos según el día de la semana y el medio de pago, y qué tan concentradas están las compras en pocos proveedores?
+
+Por qué importa: *[una o dos frases sobre qué decisión habilita la respuesta: stock, horarios, negociación con proveedores, caja].*
+
+## 2. Los datos
+
+| Fuente | Período | Filas | Qué contiene |
+|---|---|---|---|
+| Registro diario de caja | ago 2025 – ene 2027 | *[n]* | Fecha, efectivo, Posnet, transferencias |
+| Pagos a proveedores | ago 2025 – ene 2027 | *[n]* | Fecha, proveedor, categoría, monto |
+
+**Limpieza:** *[qué se corrigió: fechas, duplicados, categorías unificadas].*
+**Anonimización:** montos reescalados por un factor fijo y proveedores con nombres genéricos.
+**Limitaciones:** *[qué no dicen estos datos].*
+
+```{python}
+#| code-fold: true
+#| code-summary: "Carga de datos (simulados en esta plantilla)"
+import numpy as np
+import pandas as pd
+
+rng = np.random.default_rng(7)
+dias = pd.date_range("2025-08-01", "2027-01-31", freq="D")
+factor_dia = {0: 0.9, 1: 0.85, 2: 0.9, 3: 0.95, 4: 1.1, 5: 1.35, 6: 1.0}
+base = np.array([factor_dia[d.dayofweek] for d in dias]) * 100
+
+caja = pd.DataFrame({
+    "fecha": dias,
+    "efectivo": (base * rng.uniform(0.35, 0.5, len(dias))).round(1),
+    "posnet": (base * rng.uniform(0.25, 0.35, len(dias))).round(1),
+    "transferencia": (base * rng.uniform(0.2, 0.35, len(dias))).round(1),
+})
+caja.head()
+```
+
+## 3. El método
+
+*[Explicado sin jerga. Ejemplo:]* Cargué los registros en una base SQLite y respondí cada pregunta con una consulta SQL. Para comparar días uso promedios por día de la semana; para la concentración de proveedores, la participación acumulada.
+
+```sql
+-- Ejemplo de consulta que va en esta sección
+SELECT strftime('%w', fecha) AS dia_semana,
+       AVG(efectivo + posnet + transferencia) AS venta_promedio
+FROM caja
+GROUP BY dia_semana
+ORDER BY dia_semana;
+```
+
+## 4. Resultados
+
+```{python}
+#| label: fig-dias
+#| fig-cap: "Venta promedio por día de la semana, según medio de pago (datos simulados)."
+#| code-fold: true
+#| code-summary: "Ver el código del gráfico"
+import matplotlib.pyplot as plt
+
+nombres = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
+prom = caja.assign(d=caja.fecha.dt.dayofweek).groupby("d")[["efectivo", "posnet", "transferencia"]].mean()
+
+colores = {"efectivo": "#0e6b6b", "posnet": "#7fb3ad", "transferencia": "#c9a227"}
+fig, ax = plt.subplots(figsize=(8, 3.6))
+abajo = np.zeros(7)
+for medio, color in colores.items():
+    ax.bar(nombres, prom[medio], bottom=abajo, color=color, label=medio.capitalize(), width=0.65)
+    abajo += prom[medio].values
+ax.set_ylabel("Venta promedio (índice)")
+ax.legend(frameon=False, ncols=3, loc="upper left")
+for lado in ["top", "right"]:
+    ax.spines[lado].set_visible(False)
+fig.patch.set_alpha(0)
+ax.set_facecolor("none")
+plt.tight_layout()
+plt.show()
+```
+
+*[Dos o tres frases interpretando el gráfico. Qué se ve, qué sorprende, qué no se esperaba.]*
+
+## 5. Conclusión y qué decisión habilita
+
+- *[Hallazgo 1 → decisión concreta]*
+- *[Hallazgo 2 → decisión concreta]*
+- *[Qué haría distinto o qué analizaría después]*
+
+---
+
+**Código y datos:** [repositorio en GitHub](https://github.com/maxibalmaceda/radiografia-comercio)
