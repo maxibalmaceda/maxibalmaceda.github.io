@@ -1,0 +1,101 @@
+---
+title: "Cuando el promedio miente"
+description: "Un solo dato mal cargado alcanza para mover la media todo lo que quiera. La mediana, en cambio, ni se inmuta. Por qué pasa y cómo medirlo."
+date: 2026-11-15
+categories: [Estadística, Python]
+image: portada.png
+draft: true   # EJEMPLO: revisalo, reescribilo a tu estilo y cambiá a false para publicarlo
+---
+
+Imaginá que registrás las ventas diarias de un comercio durante un mes. Un día, al cargar el dato, se escapa un cero de más. ¿Cuánto daño hace ese único error al promedio del mes?
+
+Más del que parece. Y entender por qué es una de las ideas más útiles de la estadística aplicada.
+
+## La cuenta que lo explica
+
+La media de $n$ observaciones es
+
+$$
+\bar{x}_n = \frac{1}{n}\sum_{i=1}^{n} x_i .
+$$
+
+Si agregamos una observación nueva $x_{n+1}$, la media pasa a ser
+
+$$
+\bar{x}_{n+1} = \frac{n\,\bar{x}_n + x_{n+1}}{n+1} = \bar{x}_n + \frac{x_{n+1} - \bar{x}_n}{n+1}.
+$$
+
+La fórmula dice algo muy concreto: la media se corre una fracción $\frac{1}{n+1}$ de la distancia entre el dato nuevo y la media anterior. Como esa distancia no tiene techo, **un solo valor puede llevar la media a cualquier lugar**.
+
+La mediana, en cambio, solo mira el orden de los datos. Un valor extremo pasa a ocupar el último lugar de la lista, pero el del medio casi no cambia.
+
+## Un ejemplo con datos simulados
+
+Simulo 30 días de ventas alrededor de 100 unidades diarias y agrego un día mal cargado: 1000 en lugar de 100.
+
+```{python}
+#| code-fold: true
+#| code-summary: "Ver el código de la simulación"
+import numpy as np
+
+rng = np.random.default_rng(seed=42)
+ventas = rng.normal(loc=100, scale=12, size=30).round()
+ventas_con_error = np.append(ventas, 1000)  # un cero de más
+
+resumen = {
+    "Sin el error":  (ventas.mean(), np.median(ventas)),
+    "Con el error":  (ventas_con_error.mean(), np.median(ventas_con_error)),
+}
+for caso, (media, mediana) in resumen.items():
+    print(f"{caso:<14} media = {media:6.1f}   mediana = {mediana:6.1f}")
+```
+
+Un error en 31 datos movió la media unas 29 unidades, casi un 30 %. La mediana se movió apenas.
+
+```{python}
+#| label: fig-promedio
+#| fig-cap: "Ventas diarias simuladas. Un solo día mal cargado arrastra la media hacia arriba; la mediana se queda con el resto de los datos."
+#| code-fold: true
+#| code-summary: "Ver el código del gráfico"
+import matplotlib.pyplot as plt
+
+tinta, suave, acento, alerta = "#1d2733", "#9aa3ad", "#0e6b6b", "#b5542a"
+
+fig, ax = plt.subplots(figsize=(8, 2.8))
+jitter = rng.uniform(-0.12, 0.12, size=len(ventas))
+ax.scatter(ventas, jitter, s=28, color=suave, zorder=3)
+ax.scatter([1000], [0], s=46, color=alerta, zorder=3)
+
+media, mediana = ventas_con_error.mean(), np.median(ventas_con_error)
+ax.axvline(mediana, color=acento, lw=2)
+ax.axvline(media, color=alerta, lw=2, ls="--")
+ax.text(mediana + 12, 0.32, f"mediana {mediana:.0f}", color=acento, fontsize=10)
+ax.text(media + 12, -0.38, f"media {media:.0f}", color=alerta, fontsize=10)
+ax.annotate("día mal cargado", xy=(1000, 0), xytext=(820, 0.3),
+            color=alerta, fontsize=10,
+            arrowprops=dict(arrowstyle="->", color=alerta))
+
+ax.set_yticks([])
+ax.set_ylim(-0.5, 0.5)
+ax.set_xlabel("Unidades vendidas por día", color=tinta)
+for lado in ["top", "right", "left"]:
+    ax.spines[lado].set_visible(False)
+ax.tick_params(colors=tinta)
+fig.patch.set_alpha(0)
+ax.set_facecolor("none")
+plt.tight_layout()
+plt.show()
+```
+
+## El nombre técnico: punto de ruptura
+
+En estadística robusta, el **punto de ruptura** de un estimador es la proporción más chica de datos contaminados que alcanza para llevarlo a un valor arbitrario.
+
+- Para la media es $\frac{1}{n}$, que tiende a $0$: basta un dato.
+- Para la mediana es cercano a $\frac{1}{2}$: hay que arruinar la mitad de los datos.
+
+## Qué hacer en la práctica
+
+1. **Mirar los datos antes de resumirlos.** Un gráfico simple como el de arriba muestra el problema en un segundo.
+2. **Reportar media y mediana juntas.** Si están muy lejos, algo está pasando.
+3. **No borrar el dato raro sin pensar.** Puede ser un error de carga o puede ser lo más importante del mes. En detección de fraude, justamente, lo raro es lo que se busca.
